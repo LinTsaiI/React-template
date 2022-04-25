@@ -155,20 +155,19 @@ console.log(process.env.APP_KEY);
 - Create the src directory for assets files. We typically need ***index.html, index.js, App.js***, and any other files that match the needs of your project. The file structure will look like the following state:
 
 ```
-project-name
-		--node_modules
-		--src
-				-index.js
-				-index.html
-				--container
-						-App.js
-						-App.css
-				--comonents
-						-DemoComponent.js
-		-.babelrc
-		-package-lock.json
-		-package.json
-		-webpack.confic.js
+--node_modules
+--src
+  -index.js
+  -index.html
+  --container
+    -App.js
+    -App.css
+  --components
+    -DemoComponent.js
+-.babelrc
+-package-lock.json
+-package.json
+-webpack.confic.js
 ```
 
 - A sample code of index.html

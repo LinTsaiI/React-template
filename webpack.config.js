@@ -8,7 +8,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = (env, argv) => {
   return {
     mode: env.production ? 'production' : 'development',   // The default mode is production. development mode can help optimize performance.
-    devtool: argv.mode === 'production' ? 'source-map' : 'inline-source-map',
+    devtool: argv.mode === 'production' ? false : 'inline-source-map',
     entry: path.join(__dirname, 'src', 'index.js'),   // The entry point indicates which module webpack should use to begin building out its internal dependency graph. The default is './src/index.js'.
     output: {   // Where to emit the bundles.
       path: path.resolve(__dirname, 'dist'),   // The directory to put assets after bundling. '/dist' is the default.
@@ -17,7 +17,7 @@ module.exports = (env, argv) => {
       publicPath: '/'
     },
     devServer: {
-      port: 5000,   // Specify a port to run on
+      port: 3000,   // Specify a port to run on
       static: {
         directory: path.join(__dirname, 'dist'),
         watch: false,

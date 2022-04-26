@@ -108,6 +108,13 @@ module.exports = (env, argv) => {
         {
           test: /\.(png|jpe?g|gif)$/i,
           type: 'asset'
+        },
+        {
+          test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+          type: 'asset/resource',
+          generator: {
+            filename: 'font/[name][ext]'
+          }
         }
       ]
     },

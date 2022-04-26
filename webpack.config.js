@@ -13,7 +13,7 @@ module.exports = (env, argv) => {
     output: {   // Where to emit the bundles.
       path: path.resolve(__dirname, 'dist'),   // The directory to put assets after bundling. '/dist' is the default.
       filename: 'bundle.js',   // The filename of bundled file
-      assetModuleFilename: 'img/[name][ext]',
+      assetModuleFilename: 'img/[name][ext]',   // Assets files like images will in dist/img directory after bundling.
       publicPath: '/'
     },
     devServer: {
@@ -43,6 +43,13 @@ module.exports = (env, argv) => {
         {
           test: /\.(png|jpe?g|gif)$/i,
           type: 'asset'
+        },
+        {
+          test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,   // For font file insertion.
+          type: 'asset/resource',
+          generator: {
+            filename: 'font/[name][ext]'   // Font files will in dist/font directory after bundling.
+          }
         }
       ]
     },

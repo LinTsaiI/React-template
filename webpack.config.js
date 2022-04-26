@@ -14,7 +14,7 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, 'dist'),   // The directory to put assets after bundling. '/dist' is the default.
       filename: 'bundle.js',   // The filename of bundled file
       assetModuleFilename: 'img/[name][ext]',   // Assets files like images will in dist/img directory after bundling.
-      publicPath: '/'
+      publicPath: '/'   // Specify the base path for all the assets within your application.
     },
     devServer: {
       port: 3000,   // Specify a port to run on
@@ -22,6 +22,7 @@ module.exports = (env, argv) => {
         directory: path.join(__dirname, 'dist'),
         watch: false,
       },
+      historyApiFallback: true,   // Redirect 404s to /index.html
       open: true,   // Open the browser after server had been started
       hot: true,   // Enable webpack's Hot Module Replacement(HMR) feature. When re-build the code after changing, the new bundled code replace the old code on the browser without refresh the browser.
     },

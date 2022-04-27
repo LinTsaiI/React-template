@@ -31,9 +31,12 @@ npm install react react-dom react-router-dom@6 @reduxjs/toolkit react-redux
     - [@babel/core](https://babeljs.io/docs/en/babel-core): The Babel compiler core.
     - [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env): A collection of babel plugins to transform modern JavaScript code, depending on the target browser we specify in the configuration, automatically enables the necessary plugins needed by your target environment(s).
     - [@babel/preset-react](https://babeljs.io/docs/en/babel-preset-react): Babel preset for all React plugins to compile JSX into regular JavaScript.
+    - [@babel/plugin-transform-runtime](https://babeljs.io/docs/en/babel-plugin-transform-runtime): Enables the re-use of Babel's injected helper code to save on code size.
+    - @babel/runtime: Correspond to @babel/plugin-transform-runtime as a production dependency.
 
 ```bash
-npm install @babel/core @babel/preset-env @babel/preset-react --save-dev
+npm install @babel/core @babel/preset-env @babel/preset-react @babel/plugin-transform-runtime --save-dev
+npm install @babel/runtime
 ```
 
 - Install webpack backbone and dev dependencies includes:
@@ -57,7 +60,13 @@ npm install webpack webpack-cli webpack-dev-server babel-loader css-loader html-
 // .babelrc
 
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react"]
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime"
+  ]
 }
 ```
 
